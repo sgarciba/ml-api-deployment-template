@@ -11,6 +11,8 @@ from sklearn.preprocessing import StandardScaler
 MODEL_DIR = Path(__file__).resolve().parents[1] / "models"
 MODEL_PATH = MODEL_DIR / "classifier.joblib"
 
+X, y = load_breast_cancer(return_X_y=True, as_frame=True)
+print(X.info())
 
 def main():
     # 1. Load data as a DataFrame (keeps the feature names!)
