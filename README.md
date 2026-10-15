@@ -1,5 +1,7 @@
 # Breast Cancer Classifier API
 
+![CI](https://github.com/sgarciba/ml-api-deployment-template/actions/workflows/ci.yml/badge.svg)
+
 A production-style machine learning service that serves a scikit-learn classification model through a REST API built with **FastAPI**. It is tested with **pytest** and packaged with **Docker**.
 
 The project is also designed as a **reusable template** for serving other ML models.
