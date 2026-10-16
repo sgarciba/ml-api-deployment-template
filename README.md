@@ -6,6 +6,10 @@ A production-style machine learning service that serves a scikit-learn classific
 
 The project is also designed as a **reusable template** for serving other ML models.
 
+🚀 Live API: https://ml-api-deployment-template.onrender.com/docs
+
+(Note: Hosted on Render’s free tier; the first request after a period of inactivity may take up to a minute while the service wakes up.)
+
 ---
 
 ## Features
