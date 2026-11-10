@@ -18,19 +18,19 @@ def malignant_sample():
 def test_predict_returns_expected_keys(model, malignant_sample):
     result = predict(model, malignant_sample)
     assert set(result) == {"prediction", "label", "probability"}
-    
-    
+
+
 def test_known_malignant_case(model, malignant_sample):
     result = predict(model, malignant_sample)
-    assert result['label'] == "malignant"
+    assert result["label"] == "malignant"
 
 
 def test_probability_is_valid_float(model, malignant_sample):
     result = predict(model, malignant_sample)
-    assert isinstance(result['probability'], float)
-    assert 0 <= result['probability'] <= 1
+    assert isinstance(result["probability"], float)
+    assert 0 <= result["probability"] <= 1
+
 
 def test_prediction_is_python_int(model, malignant_sample):
     result = predict(model, malignant_sample)
-    assert isinstance(result['prediction'], int)
-    
+    assert isinstance(result["prediction"], int)

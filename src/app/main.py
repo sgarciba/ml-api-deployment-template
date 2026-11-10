@@ -11,18 +11,19 @@ ml_models = {}
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    ml_models["classifier"] = load_model()   # runs once at startup
+    ml_models["classifier"] = load_model()  # runs once at startup
     yield
-    ml_models.clear()                         # runs at shutdown
+    ml_models.clear()  # runs at shutdown
 
 
-app = FastAPI(title="Breast Cancer Classifier", version=MODEL_VERSION, lifespan=lifespan)
+app = FastAPI(
+    title="Breast Cancer Classifier", version=MODEL_VERSION, lifespan=lifespan
+)
 
 
 @app.get("/health")
 def health():
     return {"status": "ok"}
-    
 
 
 @app.post("/predict", response_model=PredictionResponse)
@@ -33,6 +34,6 @@ def predict_endpoint(request: PredictionRequest):
 
     # TODO 3: call your predict() function with the loaded model
     predictions = predict(ml_models["classifier"], columns)
-    
+
     # TODO 4: return the result PLUS the model_version
     return {**predictions, "model_version": MODEL_VERSION}
